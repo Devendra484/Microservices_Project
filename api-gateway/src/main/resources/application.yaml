@@ -1,0 +1,14 @@
+spring :
+  application:
+    name: API-GATEWAY
+  cloud :
+    gateway :
+      routes :
+        - id : USER-SERVICE
+          uri: http://localhost:8001
+          predicates :
+            - Path=/user/**
+        - id: DEPARTMENT-SERVICE
+          uri: http://localhost:8000
+          predicates:
+            - Path=/dep/**
